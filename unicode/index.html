@@ -1,7 +1,7 @@
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
-	<title>Java a čeština? Unicode!</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Java a ÄŤeĹˇtina? Unicode!</title>
 	<style>
 	h1, h2 { color: red; }
 	code { background-color: #ddd; }
@@ -12,77 +12,77 @@
 
 <table width="100%" border="0">
 <tr><td><img src="unicode_velky.gif" width=280 height=80 border=0 alt="UNICODE"></td>
-	<td><h1>Java a čeština? Unicode!</h1></td>
+	<td><h1>Java a ÄŤeĹˇtina? Unicode!</h1></td>
 	<td align="RIGHT" valign="BOTTOM"><a href="http://www.unicode.org"><img src="unicode_maly.gif" width=32 height=32 border=0 alt="unicode"></a></td>
 	</tr>
 </table>
 <hr>
 <ul>
-<li><a href="#strucne">Stručně o Unicode</a></li>
+<li><a href="#strucne">StruÄŤnÄ› o Unicode</a></li>
 <li><a href="#java">Unicode a Java</a></li>
-<li><a href="#zdrojak">Znaky ve zdrojovém kódu</a></li>
+<li><a href="#zdrojak">Znaky ve zdrojovĂ©m kĂłdu</a></li>
 <li><a href="#jsp">JSP</a></li>
-<li><a href="#db">Databáze</a></li>
-<li><a href="#oriznuti">Oříznutí diakritiky</a></li>
+<li><a href="#db">DatabĂˇze</a></li>
+<li><a href="#oriznuti">OĹ™Ă­znutĂ­ diakritiky</a></li>
 <li><a href="#tabulky">Tabulky</a></li>
 </ul>
 <hr>
 
-<h2 id="strucne">Stručně o Unicode</h2>
+<h2 id="strucne">StruÄŤnÄ› o Unicode</h2>
 
-<p>Světový standard kódování znaků <b>Unicode Worldwide Character Standard</b> zavedlo <b>Unicode Consorcium</b> jako systém znaků určený pro podporu výměny, zpracování a zobrazování psaného textu v rozličných jazykových verzích moderního světa.</p>
+<p>SvÄ›tovĂ˝ standard kĂłdovĂˇnĂ­ znakĹŻ <b>Unicode Worldwide Character Standard</b> zavedlo <b>Unicode Consorcium</b> jako systĂ©m znakĹŻ urÄŤenĂ˝ pro podporu vĂ˝mÄ›ny, zpracovĂˇnĂ­ a zobrazovĂˇnĂ­ psanĂ©ho textu v rozliÄŤnĂ˝ch jazykovĂ˝ch verzĂ­ch modernĂ­ho svÄ›ta.</p>
 
-<p>Oproti kódování ASCII a dalším jednobajtovým kódováním, ve kterých je každý znak uložen na 8 bitech, je v kódováních Unicode jeden znak uložen na jednom a více bajtech.
+<p>Oproti kĂłdovĂˇnĂ­ ASCII a dalĹˇĂ­m jednobajtovĂ˝m kĂłdovĂˇnĂ­m, ve kterĂ˝ch je kaĹľdĂ˝ znak uloĹľen na 8 bitech, je v kĂłdovĂˇnĂ­ch Unicode jeden znak uloĹľen na jednom a vĂ­ce bajtech.
 
-Znaky Unicode je do bajtů možné kódovat vícero kódováními: kódovacími schématy <i>Unicode Transformation Formats</i> (UTF) nebo <i>Universal Character Set</i> (UCS). 
-Mezi nejdůležitější patří <b>UTF-8</b>, které kóduje znaky na jeden až čtyři bajty a je zajímavé tím, že je kompatibilní s ASCII, <b>UTF-16</b>, které znaky kóduje do dvou nebo čtyř bajtů nebo <b>UCS-4/UTF-32</b>, což jsou shodná kódování přiřazující znakům vždy čtyři bajty.
+Znaky Unicode je do bajtĹŻ moĹľnĂ© kĂłdovat vĂ­cero kĂłdovĂˇnĂ­mi: kĂłdovacĂ­mi schĂ©maty <i>Unicode Transformation Formats</i> (UTF) nebo <i>Universal Character Set</i> (UCS). 
+Mezi nejdĹŻleĹľitÄ›jĹˇĂ­ patĹ™Ă­ <b>UTF-8</b>, kterĂ© kĂłduje znaky na jeden aĹľ ÄŤtyĹ™i bajty a je zajĂ­mavĂ© tĂ­m, Ĺľe je kompatibilnĂ­ s ASCII, <b>UTF-16</b>, kterĂ© znaky kĂłduje do dvou nebo ÄŤtyĹ™ bajtĹŻ nebo <b>UCS-4/UTF-32</b>, coĹľ jsou shodnĂˇ kĂłdovĂˇnĂ­ pĹ™iĹ™azujĂ­cĂ­ znakĹŻm vĹľdy ÄŤtyĹ™i bajty.
 </p>
 
-<p>Unicode je značně univerzální a obsahuje vlastně znaky všech národních abeced (Ameriky, Evropa, Střední Východ, Afrika, Asie a Tichomoří). Pro nás je samozřejmě důležité že i ty naše špecifické - česko&nbsp;-&nbsp;slovenské. </p>
+<p>Unicode je znaÄŤnÄ› univerzĂˇlnĂ­ a obsahuje vlastnÄ› znaky vĹˇech nĂˇrodnĂ­ch abeced (Ameriky, Evropa, StĹ™ednĂ­ VĂ˝chod, Afrika, Asie a TichomoĹ™Ă­). Pro nĂˇs je samozĹ™ejmÄ› dĹŻleĹľitĂ© Ĺľe i ty naĹˇe ĹˇpecifickĂ© - ÄŤesko&nbsp;-&nbsp;slovenskĂ©. </p>
 
-<p>Pro kódování češtiny se používají i jiná kódování: je to především Windows-1250 (používané ve Windows), 
-ISO-8859-2 (dříve zvané Latin2 nebo Latin 2) používané na operačním systému Linux a další. V Javě je samozřejmě možné mezi jednotlivými kódováními převádět.</p>
+<p>Pro kĂłdovĂˇnĂ­ ÄŤeĹˇtiny se pouĹľĂ­vajĂ­ i jinĂˇ kĂłdovĂˇnĂ­: je to pĹ™edevĹˇĂ­m Windows-1250 (pouĹľĂ­vanĂ© ve Windows), 
+ISO-8859-2 (dĹ™Ă­ve zvanĂ© Latin2 nebo Latin 2) pouĹľĂ­vanĂ© na operaÄŤnĂ­m systĂ©mu Linux a dalĹˇĂ­. V JavÄ› je samozĹ™ejmÄ› moĹľnĂ© mezi jednotlivĂ˝mi kĂłdovĂˇnĂ­mi pĹ™evĂˇdÄ›t.</p>
 
 <h2 id="strucne">Unicode a Java</h2>
 
-<p>Pokud jste někdy programovali v Javě, určitě jste narazili na problém jak
-nahnat do svých aplikací, appletů a <b>konfiguračních souborů</b> spoustu všelijakých znaků se všelijak zkroucenými znamínky v záhlaví.
-Tento problém samozřejmě není neřešitelný a já se jej pokusím teď rozebrat.
+<p>Pokud jste nÄ›kdy programovali v JavÄ›, urÄŤitÄ› jste narazili na problĂ©m jak
+nahnat do svĂ˝ch aplikacĂ­, appletĹŻ a <b>konfiguraÄŤnĂ­ch souborĹŻ</b> spoustu vĹˇelijakĂ˝ch znakĹŻ se vĹˇelijak zkroucenĂ˝mi znamĂ­nky v zĂˇhlavĂ­.
+Tento problĂ©m samozĹ™ejmÄ› nenĂ­ neĹ™eĹˇitelnĂ˝ a jĂˇ se jej pokusĂ­m teÄŹ rozebrat.
 
-<p>V Javě jsou všechny znaky (a taky stringy) reprezentovny právě pomocí <b>Unicode</b>, které se zapisují pomocí escape sekvencí takto
+<p>V JavÄ› jsou vĹˇechny znaky (a taky stringy) reprezentovny prĂˇvÄ› pomocĂ­ <b>Unicode</b>, kterĂ© se zapisujĂ­ pomocĂ­ escape sekvencĂ­ takto
 
 <blockquote><code>char ch = '\unnnn';</code></blockquote>
 
-kde <code>nnnn</code> je hexadecimální vyjádření pozice znaku v tabulce <b>Unicode</b>.
+kde <code>nnnn</code> je hexadecimĂˇlnĂ­ vyjĂˇdĹ™enĂ­ pozice znaku v tabulce <b>Unicode</b>.
 
-<p>Za normálních okolností tento zápis zřejmě nepoužijete, protože překladač si ASCII znaky "konvertuje" sám, problém nastává až s národními (českými) znaky. Tady už tento zápis použít musíte.
+<p>Za normĂˇlnĂ­ch okolnostĂ­ tento zĂˇpis zĹ™ejmÄ› nepouĹľijete, protoĹľe pĹ™ekladaÄŤ si ASCII znaky "konvertuje" sĂˇm, problĂ©m nastĂˇvĂˇ aĹľ s nĂˇrodnĂ­mi (ÄŤeskĂ˝mi) znaky. Tady uĹľ tento zĂˇpis pouĹľĂ­t musĂ­te.
 
-<p>Zápis <i>ě</i> (e s háčkem) pomocí escape sekvence v <b>Unicode</b> vypadá
+<p>ZĂˇpis <i>Ä›</i> (e s hĂˇÄŤkem) pomocĂ­ escape sekvence v <b>Unicode</b> vypadĂˇ
 
 <blockquote><code>char ch = '\u011B';</code></blockquote>
 
-Pokud chceme napsat slůvko <i>pěkně</i> použijeme konstrukci
+Pokud chceme napsat slĹŻvko <i>pÄ›knÄ›</i> pouĹľijeme konstrukci
 
 <blockquote><code>String s = "p" + '\u011B' + "kn" + '\u011B';</code></blockquote>
 
-Asi si řeknete, že je to poměrně složité, ale odměnou vám je, že takovéto české znaky
-budou čitelné skutečně na všech platformách.
-Samozřejmě za předpokladu, že je k dispozici font s odpovídajícími (českými) znaky!
+Asi si Ĺ™eknete, Ĺľe je to pomÄ›rnÄ› sloĹľitĂ©, ale odmÄ›nou vĂˇm je, Ĺľe takovĂ©to ÄŤeskĂ© znaky
+budou ÄŤitelnĂ© skuteÄŤnÄ› na vĹˇech platformĂˇch.
+SamozĹ™ejmÄ› za pĹ™edpokladu, Ĺľe je k dispozici font s odpovĂ­dajĂ­cĂ­mi (ÄŤeskĂ˝mi) znaky!
 
 
-<h2 id="zdrojak">Znaky ve zdrojovém kódu</h2>
+<h2 id="zdrojak">Znaky ve zdrojovĂ©m kĂłdu</h2>
 
-<p>Novější verze kompilátoru Javy (určitě od verze 1.4) umožňují použití přepínače <code>--encoding <i>kódování</i></code>, který umožní zapisovat zdrojový kód ve zvoleném kódování, a kompilátor sám provede konverzi do <b>Unicode</b>. Rovněž vývojová prostředí vám dovolí nastavit kódování zdrojového textu, a například Eclipse pro Windows správně samo nastaví kódování na Windows-1250.</p>
+<p>NovÄ›jĹˇĂ­ verze kompilĂˇtoru Javy (urÄŤitÄ› od verze 1.4) umoĹľĹujĂ­ pouĹľitĂ­ pĹ™epĂ­naÄŤe <code>--encoding <i>kĂłdovĂˇnĂ­</i></code>, kterĂ˝ umoĹľnĂ­ zapisovat zdrojovĂ˝ kĂłd ve zvolenĂ©m kĂłdovĂˇnĂ­, a kompilĂˇtor sĂˇm provede konverzi do <b>Unicode</b>. RovnÄ›Ĺľ vĂ˝vojovĂˇ prostĹ™edĂ­ vĂˇm dovolĂ­ nastavit kĂłdovĂˇnĂ­ zdrojovĂ©ho textu, a napĹ™Ă­klad Eclipse pro Windows sprĂˇvnÄ› samo nastavĂ­ kĂłdovĂˇnĂ­ na Windows-1250.</p>
 
-<h2>Znaky v načítaných souborech</h2>
+<h2>Znaky v naÄŤĂ­tanĂ˝ch souborech</h2>
 
-<p>Pokud do Javovského programu potřebujeme načíst soubor, který není kódován v <b>Unicode</b>, s úspěchem využijeme druhý parametr konstruktoru třídy <code>InputStreamReader</code>, kde specifikujeme kódování souboru.</p>
+<p>Pokud do JavovskĂ©ho programu potĹ™ebujeme naÄŤĂ­st soubor, kterĂ˝ nenĂ­ kĂłdovĂˇn v <b>Unicode</b>, s ĂşspÄ›chem vyuĹľijeme druhĂ˝ parametr konstruktoru tĹ™Ă­dy <code>InputStreamReader</code>, kde specifikujeme kĂłdovĂˇnĂ­ souboru.</p>
 
 <blockquote><code>BufferedReader r = new BufferedReader(new <b>InputStreamReader</b>(new FileInputStream("<i>soubor.txt</i>"), <b>"windows-1250"</b>));</code></blockquote>
 
 <h2 id="strucne">Servlety</h2>
 
-<p>V servletech je nutné nastavit vámi používané kódování nejenom pro <i>response</i>, ale i pro <i>request</i>. </p>
+<p>V servletech je nutnĂ© nastavit vĂˇmi pouĹľĂ­vanĂ© kĂłdovĂˇnĂ­ nejenom pro <i>response</i>, ale i pro <i>request</i>. </p>
 
 <blockquote><code>
 request.setCharacterEncoding("<b>UTF-8</b>");<br>
@@ -91,42 +91,42 @@ response.setCharacterEncoding("<b>UTF-8</b>");
 
 <h2 id="jsp">JSP</h2>
 
-<p>Ve svých JSP stránkách uvádějte používané kódování pomocí direktivy </p>
+<p>Ve svĂ˝ch JSP strĂˇnkĂˇch uvĂˇdÄ›jte pouĹľĂ­vanĂ© kĂłdovĂˇnĂ­ pomocĂ­ direktivy </p>
 <blockquote><code>
 &lt;%@ page language="java" contentType="text/html; charset=<b>utf-8</b>" pageEncoding="<b>utf-8</b>"%&gt;
 </code></blockquote> 
-<p>Tuto direktivu nezapomeňte vložit i do souborů, které vkládáte pomocí <code>&lt;%@ include file="<i>soubor.html</i>" %&gt;</code>.</p>
+<p>Tuto direktivu nezapomeĹte vloĹľit i do souborĹŻ, kterĂ© vklĂˇdĂˇte pomocĂ­ <code>&lt;%@ include file="<i>soubor.html</i>" %&gt;</code>.</p>
 
-<h2 id="db">Databáze</h2>
-<p>Většina databází (a databázových driverů), ke kterým se přistupuje přes JDBC, nemá se správným překódováním znaků mezi kódováním databáze a Javou
-problém (PostgreSQL, Oracle,...), nicméně <b>MySQL</b> vyžaduje použité kódování uvést v connection stringu.
-Pokud databáze používá kódování Windows 1250, bude to vypadat takto:</p>
+<h2 id="db">DatabĂˇze</h2>
+<p>VÄ›tĹˇina databĂˇzĂ­ (a databĂˇzovĂ˝ch driverĹŻ), ke kterĂ˝m se pĹ™istupuje pĹ™es JDBC, nemĂˇ se sprĂˇvnĂ˝m pĹ™ekĂłdovĂˇnĂ­m znakĹŻ mezi kĂłdovĂˇnĂ­m databĂˇze a Javou
+problĂ©m (PostgreSQL, Oracle,...), nicmĂ©nÄ› <b>MySQL</b> vyĹľaduje pouĹľitĂ© kĂłdovĂˇnĂ­ uvĂ©st v connection stringu.
+Pokud databĂˇze pouĹľĂ­vĂˇ kĂłdovĂˇnĂ­ Windows 1250, bude to vypadat takto:</p>
 <blockquote><code>jdbc:mysql://hostname/database?characterEncoding=<b>Cp1250</b></code></blockquote>
-<p>Pro ISO 8859-2 použijeme hodnotu <code>ISO8859_2</code>.</p>
+<p>Pro ISO 8859-2 pouĹľijeme hodnotu <code>ISO8859_2</code>.</p>
 
-<p>Pokud databáze používá UTF-8, je třeba ještě přidat parametr <code>useUnicode=true</code>:</p>
+<p>Pokud databĂˇze pouĹľĂ­vĂˇ UTF-8, je tĹ™eba jeĹˇtÄ› pĹ™idat parametr <code>useUnicode=true</code>:</p>
 <blockquote><code>jdbc:mysql://hostname/database?<b>useUnicode=true</b>&amp;characterEncoding=<b>UTF-8</b></code></blockquote>
 
-<h2 id="oriznuti">Oříznutí diakritiky</h2>
-<p>Občas se hodí dikaritiku z textu odstranit (z č udělat c).</p>
+<h2 id="oriznuti">OĹ™Ă­znutĂ­ diakritiky</h2>
+<p>ObÄŤas se hodĂ­ dikaritiku z textu odstranit (z ÄŤ udÄ›lat c).</p>
 
-<p>V Javě verze 1.4 a 5 je třída <code>Normalizer</code>, která je součástí nestandardního balíčku sun.text:
+<p>V JavÄ› verze 1.4 a 5 je tĹ™Ă­da <code>Normalizer</code>, kterĂˇ je souÄŤĂˇstĂ­ nestandardnĂ­ho balĂ­ÄŤku sun.text:
 <blockquote><code>
-String bez = Normalizer.normalize("<i>žluťoučký</i>", Normalizer.DECOMP, 0).replaceAll("[^\\p{ASCII}]","");
+String bez = Normalizer.normalize("<i>ĹľluĹĄouÄŤkĂ˝</i>", Normalizer.DECOMP, 0).replaceAll("[^\\p{ASCII}]","");
 </code></blockquote></p>
 
-<p>V Javě od verze 6 pak je pak přesunuta <a href="http://java.sun.com/javase/6/docs/api/java/text/Normalizer.html">java.text.Normalizer</a> a má trochu jinou syntaxi:
+<p>V JavÄ› od verze 6 pak je pak pĹ™esunuta <a href="http://java.sun.com/javase/6/docs/api/java/text/Normalizer.html">java.text.Normalizer</a> a mĂˇ trochu jinou syntaxi:
 <blockquote><code>
-String bez = Normalizer.normalize("<i>žluťoučký</i>", Form.NFD).replaceAll("[^\\p{ASCII}]","");<!-- \\p{InCombiningDiacriticalMarks}+ -->
+String bez = Normalizer.normalize("<i>ĹľluĹĄouÄŤkĂ˝</i>", Form.NFD).replaceAll("[^\\p{ASCII}]","");<!-- \\p{InCombiningDiacriticalMarks}+ -->
 </code></blockquote></p>
 
-<p>Můžeme také použít <a href="http://icu.sourceforge.net/">ICU</a> (International Components for Unicode). 
-(Kompletní ICU4J má přes 3MB, ale samotný jar s transliterátorem má cca 700kB, viz <a href="http://source.icu-project.org/repos/icu/icu4j/trunk/readme.html#HowToModularize">How to modularize ICU4J</a>.)
+<p>MĹŻĹľeme takĂ© pouĹľĂ­t <a href="http://icu.sourceforge.net/">ICU</a> (International Components for Unicode). 
+(KompletnĂ­ ICU4J mĂˇ pĹ™es 3MB, ale samotnĂ˝ jar s transliterĂˇtorem mĂˇ cca 700kB, viz <a href="http://source.icu-project.org/repos/icu/icu4j/trunk/readme.html#HowToModularize">How to modularize ICU4J</a>.)
 </p>
 
 <blockquote><code>
 Transliterator t = Transliterator.getInstance("NFD; [:Nonspacing Mark:] Remove; NFC");<br>
-String bez = t.transliterate("<i>žluťoučký</i>");
+String bez = t.transliterate("<i>ĹľluĹĄouÄŤkĂ˝</i>");
 </code></blockquote>
 
 <hr>
@@ -149,7 +149,7 @@ google_color_url = "ff0000";
 <hr>
 
 <h2 id="tabulky">Tabulky</h2>
-Do následující tabuldy jsem, dovoluji si říct přehledně, uspořádal české znaky a jim odpovídající hexadecimální <b>Unicode</b> vyjádření.
+Do nĂˇsledujĂ­cĂ­ tabuldy jsem, dovoluji si Ĺ™Ă­ct pĹ™ehlednÄ›, uspoĹ™Ăˇdal ÄŤeskĂ© znaky a jim odpovĂ­dajĂ­cĂ­ hexadecimĂˇlnĂ­ <b>Unicode</b> vyjĂˇdĹ™enĂ­.
 <div align="CENTER">
 <table border=1 align="CENTER">
 <tr bgcolor="Red">
@@ -163,70 +163,70 @@ Do následující tabuldy jsem, dovoluji si říct přehledně, uspořádal české znaky a
 <th><font color="White">&nbsp;&nbsp;hexa&nbsp;hodnota&nbsp;&nbsp;</font></th>
 </tr>
 <tr align="CENTER">
-	<td>Á</td><td>00C1</td>
-	<td>Í</td><td>00CD</td>
-	<td>Ť</td><td>0164</td>
+	<td>Ă</td><td>00C1</td>
+	<td>ĂŤ</td><td>00CD</td>
+	<td>Ĺ¤</td><td>0164</td>
 </tr>
 <tr align="CENTER">
-	<td>á</td><td>00E1</td>
-	<td>í</td><td>00ED</td>
-	<td>ť</td><td>0165</td>
+	<td>Ăˇ</td><td>00E1</td>
+	<td>Ă­</td><td>00ED</td>
+	<td>ĹĄ</td><td>0165</td>
 </tr>
 <tr align="CENTER">
-	<td>Č</td><td>010C</td>
-	<td>Ň</td><td>0147</td>
-	<td>Ú</td><td>00DA</td>
+	<td>ÄŚ</td><td>010C</td>
+	<td>Ĺ‡</td><td>0147</td>
+	<td>Ăš</td><td>00DA</td>
 </tr>
 <tr align="CENTER">
-	<td>č</td><td>010D</td>
-	<td>ň</td><td>0148</td>
-	<td>ú</td><td>00FA</td>
+	<td>ÄŤ</td><td>010D</td>
+	<td>Ĺ</td><td>0148</td>
+	<td>Ăş</td><td>00FA</td>
 </tr>
 <tr align="CENTER">
-	<td>Ď</td><td>010E</td>
-	<td>Ó</td><td>00D3</td>
-	<td>Ů</td><td>016E</td>
+	<td>ÄŽ</td><td>010E</td>
+	<td>Ă“</td><td>00D3</td>
+	<td>Ĺ®</td><td>016E</td>
 </tr>
 <tr align="CENTER">
-	<td>ď</td><td>010F</td>
-	<td>ó</td><td>00F3</td>
-	<td>ů</td><td>016F</td>
+	<td>ÄŹ</td><td>010F</td>
+	<td>Ăł</td><td>00F3</td>
+	<td>ĹŻ</td><td>016F</td>
 </tr>
 <tr align="CENTER">
-	<td>É</td><td>00C9</td>
-	<td>Ř</td><td>0158</td>
-	<td>Ý</td><td>00DD</td>
+	<td>Ă‰</td><td>00C9</td>
+	<td>Ĺ</td><td>0158</td>
+	<td>Ăť</td><td>00DD</td>
 </tr>
 <tr align="CENTER">
-	<td>é</td><td>00E9</td>
-	<td>ř</td><td>0159</td>
-	<td>ý</td><td>00FD</td>
+	<td>Ă©</td><td>00E9</td>
+	<td>Ĺ™</td><td>0159</td>
+	<td>Ă˝</td><td>00FD</td>
 </tr>
 <tr align="CENTER">
-	<td>Ě</td><td>011A</td>
-	<td>Š</td><td>0160</td>
-	<td>Ž</td><td>017D</td>
+	<td>Äš</td><td>011A</td>
+	<td>Ĺ </td><td>0160</td>
+	<td>Ĺ˝</td><td>017D</td>
 </tr>
 <tr align="CENTER">
-	<td>ě</td><td>011B</td>
-	<td>š</td><td>0161</td>
-	<td>ž</td><td>017E</td>
+	<td>Ä›</td><td>011B</td>
+	<td>Ĺˇ</td><td>0161</td>
+	<td>Ĺľ</td><td>017E</td>
 </tr>
 </table>
 </div>
 
-<p>A kdo mi nevěří, tak tady jsou dvě originální <b>Unicode</b> tabulky se znaky, které jsou pro nás důležité.<br>
-<img src="u+00c6.gif" width=702 height=972 border=0 alt="tabulka znaků 0080 - 00FF">
-<img src="u+0100.gif" width=702 height=972 border=0 alt="tabulka znaků 0100 - 017F">
-<br>Další tabuldy znaků <a href="u+0180.gif">0180 - 0217</a> a <a href="u+2122.gif">2100 - 2138</a>
+<p>A kdo mi nevÄ›Ĺ™Ă­, tak tady jsou dvÄ› originĂˇlnĂ­ <b>Unicode</b> tabulky se znaky, kterĂ© jsou pro nĂˇs dĹŻleĹľitĂ©.<br>
+<img src="u+00c6.gif" width=702 height=972 border=0 alt="tabulka znakĹŻ 0080 - 00FF">
+<img src="u+0100.gif" width=702 height=972 border=0 alt="tabulka znakĹŻ 0100 - 017F">
+<br>DalĹˇĂ­ tabuldy znakĹŻ <a href="u+0180.gif">0180 - 0217</a> a <a href="u+2122.gif">2100 - 2138</a>
 
-<p title="" align="CENTER">	Šťastné a veselé programování
-	přeje <a href="http://martin.macroware.cz/">Martiner</a>
+<p title="" align="CENTER">	Ĺ ĹĄastnĂ© a veselĂ© programovĂˇnĂ­
+	pĹ™eje <a href="http://martin.macroware.cz/">Martiner</a>
 </p><hr>
 
-<p align="CENTER"><font size="-1">Prameny: David Flanagan: Programování v jazyce Java a  
+<p align="CENTER"><font size="-1">Prameny: David Flanagan: ProgramovĂˇnĂ­ v jazyce Java a  
 <a href="http://www.unicode.org">http://www.unicode.org</a><br>
-Název a loga <b>Unicode</b> jsou nepochybně registrovanými značkami <b>Unicode Consorcium</b>.</font></p>
-<p align="CENTER"><font size="-1">Webhosting zajišťuje <a href="http://www.macroware.cz/hosting">Macroware s.r.o.</a></font></p>
+NĂˇzev a loga <b>Unicode</b> jsou nepochybnÄ› registrovanĂ˝mi znaÄŤkami <b>Unicode Consorcium</b>.</font></p>
+<p align="CENTER"><font size="-1">Webhosting zajiĹˇĹĄuje <a href="http://www.macroware.cz/hosting">Macroware s.r.o.</a></font></p>
 </body>
 </html>
