@@ -115,13 +115,13 @@ Pokud databáze používá kódování Windows 1250, bude to vypadat takto:</p>
 String bez = Normalizer.normalize("<i>žluťoučký</i>", Normalizer.DECOMP, 0).replaceAll("[^\\p{ASCII}]","");
 </code></blockquote></p>
 
-<p>V Javě od verze 6 pak je pak přesunuta <a href="http://java.sun.com/javase/6/docs/api/java/text/Normalizer.html">java.text.Normalizer</a> a má trochu jinou syntaxi:
+<p>V Javě od verze 6 pak je pak přesunuta <a href="https://docs.oracle.com/javase/6/docs/api/java/text/Normalizer.html">java.text.Normalizer</a> a má trochu jinou syntaxi:
 <blockquote><code>
 String bez = Normalizer.normalize("<i>žluťoučký</i>", Form.NFD).replaceAll("[^\\p{ASCII}]","");<!-- \\p{InCombiningDiacriticalMarks}+ -->
 </code></blockquote></p>
 
-<p>Můžeme také použít <a href="http://icu.sourceforge.net/">ICU</a> (International Components for Unicode). 
-(Kompletní ICU4J má přes 3MB, ale samotný jar s transliterátorem má cca 700kB, viz <a href="http://source.icu-project.org/repos/icu/icu4j/trunk/readme.html#HowToModularize">How to modularize ICU4J</a>.)
+<p>Můžeme také použít <a href="https://icu.unicode.org/">ICU</a> (International Components for Unicode). 
+(Kompletní ICU4J má přes 3MB, ale samotný jar s transliterátorem má cca 700kB, viz <a href="https://unicode-org.github.io/icu/userguide/icu4j/">How to modularize ICU4J</a>.)
 </p>
 
 <blockquote><code>
@@ -221,12 +221,12 @@ Do následující tabuldy jsem, dovoluji si říct přehledně, uspořádal čes
 <br>Další tabuldy znaků <a href="u+0180.gif">0180 - 0217</a> a <a href="u+2122.gif">2100 - 2138</a>
 
 <p title="" align="CENTER">	Šťastné a veselé programování
-	přeje <a href="http://martin.macroware.cz/">Martiner</a>
+	přeje <a href="https://martiner.geek.cz/">Martiner</a>
 </p><hr>
 
 <p align="CENTER"><font size="-1">Prameny: David Flanagan: Programování v jazyce Java a  
 <a href="http://www.unicode.org">http://www.unicode.org</a><br>
 Název a loga <b>Unicode</b> jsou nepochybně registrovanými značkami <b>Unicode Consorcium</b>.</font></p>
-<p align="CENTER"><font size="-1">Webhosting zajišťuje <a href="http://www.macroware.cz/hosting">Macroware s.r.o.</a></font></p>
+<p align="CENTER"><font size="-1">Webhosting zajišťuje <a href="https://www.macroware.cz/hosting/">Macroware s.r.o.</a></font></p>
 </body>
 </html>
