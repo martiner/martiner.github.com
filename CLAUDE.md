@@ -6,7 +6,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Personal homepage served by GitHub Pages at `martiner.geek.cz` (see `CNAME`). GitHub Pages runs Jekyll on every push to `master`; that push is the deploy.
 
-There is no build, lint or test tooling in the repo: no `Gemfile`, no `package.json`, no CI config. Jekyll is not set up locally, so a change can only be checked by reading the HTML or by looking at the published site.
+There are no tests, linters or CI config. The `Gemfile` pulls in the `github-pages` gem, which pins the same Jekyll and plugin versions as production, so the site can be rendered locally:
+
+```
+bundle install               # once; gems go to vendor/bundle
+bundle exec jekyll build     # output in _site/
+bundle exec jekyll serve     # http://localhost:4000
+```
+
+A custom `exclude` in `_config.yaml` replaces Jekyll 3's default list instead of extending it, so anything in the repo root that must not be published (including `Gemfile` and `vendor`) has to be listed there explicitly.
 
 ## How the pages are put together
 

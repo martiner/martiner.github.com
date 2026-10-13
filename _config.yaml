@@ -4,6 +4,9 @@ defaults:
       layout: "default"
 exclude:
   - CLAUDE.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
 gems:
   - jekyll-redirect-from
 
