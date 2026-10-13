@@ -2,6 +2,8 @@ defaults:
   -
     values:
       layout: "default"
+exclude:
+  - CLAUDE.md
 gems:
   - jekyll-redirect-from
 
