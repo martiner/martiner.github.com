@@ -19,9 +19,9 @@ A custom `exclude` in `_config.yaml` replaces Jekyll 3's default list instead of
 ## How the pages are put together
 
 - `_config.yaml` assigns `layout: default` to every page that has front matter, so pages never name a layout themselves. It also enables `jekyll-redirect-from`.
-- `_layouts/default.html` is the Bootstrap 3 "cover" template. A page supplies two front matter values: `title` (the `<title>`) and `brand` (the masthead heading, HTML allowed), and its body lands in `{{ content }}`.
-- The layout links its CSS/JS and the nav by relative path (`bootstrap.min.css`, `wishlist.html`), so a layout page only works from the repo root. A page in a subdirectory would lose its styles; `wishlist.md` (published as `/wishlist.html`) gets its `/wishlist/` URL through `redirect_from` instead of living in a directory.
-- The nav is hard-coded in the layout, including which item is `active`. A new page needs its link added there by hand.
+- `_layouts/default.html` is the Bootstrap 3 "cover" template. A page supplies `title` (the `<title>`) and `brand` (the masthead heading, HTML allowed) in its front matter, and its body lands in `{{ content }}`.
+- The layout links its CSS/JS by relative path (`bootstrap.min.css`), so a layout page only works from the repo root. A page in a subdirectory would lose its styles; `wishlist.md` (published as `/wishlist.html`) gets its `/wishlist/` URL through `redirect_from` instead of living in a directory.
+- The nav is generated from every page that sets `nav` (the link label) in its front matter, sorted by URL, so Home (`/`) comes first; the current page gets `active`.
 - `unicode/index.html` has no front matter, so Jekyll copies it verbatim: it is a standalone legacy article with its own inline styling and images, not part of the layout.
 - `bootstrap.min.*`, `cover.css` and `ie10-viewport-bug-workaround.js` are vendored; site-specific styles go in `moje.css`.
 

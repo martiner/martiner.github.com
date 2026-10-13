@@ -33,8 +33,10 @@
               <h3 class="masthead-brand">{{ page.brand }}</h3>
               <nav>
                 <ul class="nav masthead-nav">
-                  <li class="active"><a href="./">Home</a></li>
-                  <li><a href="wishlist.html">Wishlist</a></li>
+                  {% assign nav_pages = site.pages | where_exp: "p", "p.nav" | sort: "url" %}
+                  {% for p in nav_pages %}
+                  <li{% if p.url == page.url %} class="active"{% endif %}><a href="{{ p.url }}">{{ p.nav }}</a></li>
+                  {% endfor %}
                 </ul>
               </nav>
             </div>

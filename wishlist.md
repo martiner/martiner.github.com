@@ -1,6 +1,7 @@
 ---
 title: Martiner's Wishlist
 brand: Wishlist <small>aneb inspirace pro nakupování darů</small>
+nav: Wishlist
 redirect_from: /wishlist/
 ---
 
